@@ -1,6 +1,6 @@
 angular.module('app')
 .controller('AppCtrl', function(itemsService) {
-  itemsService.getAll((data) => {
+  itemsService.getImages('mountains', (data) => {
     this.items = data;
   });
 })
