@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var items = require('../database-mongo');
+var users = require('../database-mongo')
 var axios = require('axios')
 
 var app = express();
@@ -22,16 +23,10 @@ app.get('/items', function (req, res) {
   });
 });
 
-// app.get('/images', function(req, res){
-//   axios({
-//     method:'get',
-//     url:'',
-//     responseType:'stream'
-//   })
-//     .then(function(response) {
-//     response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
-//   });
-// })
+app.get('/users', function (req, res){
+  var username = req.body.username;
+  var password = req.body.password; 
+});
 
 
 app.listen(PORT, function() {
