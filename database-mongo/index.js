@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect(`mongodb://hledet:radiohead509@ds159866.mlab.com:59866/projectify`);
 
 var db = mongoose.connection;
 
@@ -18,9 +18,13 @@ var itemSchema = mongoose.Schema({
 
 var Item = mongoose.model('Item', itemSchema);
 
-// var userSchema = mongoose.Schema({
-
-// })
+var userSchema = mongoose.Schema({
+  name: {type: String, unique: true},
+  password: String,
+  meta: {
+    likes: [String]
+  }
+})
 
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
