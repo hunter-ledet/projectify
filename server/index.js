@@ -4,6 +4,8 @@ var items = require('../database-mongo');
 
 var app = express();
 
+var PORT = process.env.PORT || 9400
+
 
 // UNCOMMENT FOR ANGULAR
 app.use(express.static(__dirname + '/../angular-client'));
@@ -24,7 +26,7 @@ app.get('/', function(req, res){
 })
 
 
-app.listen(3000, function() {
+app.listen(PORT, function() {
   console.log('listening on port 3000!');
 });
 
