@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > PROJECTIFY - BEAUTIFY YOUR PROJECT
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Projectify will be your one-stop shop for high quality photos for you to add pizzazz to your projects
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Have you ever tried to google image search only to find a low quality image that barely conveyed what you intended to on that slide? Did Gary make a snarky remark because this isn't the first time it's happened? Swing by Projectify, where you can find high quality images in a flash!
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Finding high resolution pictures can be a pain to find on the internet.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Projectify will be a one-stop shop for high resolution photos.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > 'A quick search has never yielded such high-quality results' - Founder and CEO Hunter Ledet
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Simply use our well placed search bar to make your query and let the results flow in!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > 'I always tried to use Google for image searching but after using Projectify I will never go back to my old ways of image searching.' Neighbor from downstairs, Pam.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > If you think your photos on your online projects could look better, check out Projectify and see what we can do for you!
