@@ -4,7 +4,7 @@
 			<h3 class="text-center">
 				PROJECTIFY
 			</h3>
-			<!-- <div class="carousel slide" id="carousel-375931">
+			<div class="carousel slide" id="carousel-375931">
 				<ol class="carousel-indicators">
 					<li data-slide-to="0" data-target="#carousel-375931">
 					</li>
@@ -47,8 +47,8 @@
 						</div>
 					</div>
 				</div> <a class="left carousel-control" href="#carousel-375931" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-375931" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-			</div> -->
-			<form role="form" class="form-inline">
+			</div>
+			<form role="form" class="form-inline" ng-controller="AppCtrl">
 				<div class="form-group">
 					 
 					<label for="userInput">
@@ -63,8 +63,8 @@
 					</label>
 					<input type="password" class="form-control" id="exampleInputPassword1" ng-model='password'/>
 				</div>
-				<div class="form-group">
-				<button type="login" class="btn btn-default">
+				<div class="form-group" ng-controller="AppCtrl">
+				<button type="login" class="btn btn-default" ng-click="$ctrl.onClick()">
 					Login
 				</button>
       </form>
@@ -80,11 +80,10 @@
           </button>
         </div>
       </form>
-      <!-- <div>
-  <h4> List Component </h4>
-  There are {{$ctrl.items.length}} items.
+      <div>
+  Here are your {{$ctrl.items.length}} pictures. 
   <list-item ng-repeat="item in $ctrl.items" item=item />
-</div> -->
+</div>
 		</div>
 	</div>
 </div>

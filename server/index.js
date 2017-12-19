@@ -26,7 +26,14 @@ app.get('/items', function (req, res) {
 app.get('/users', function (req, res){
   var username = req.body.username;
   var password = req.body.password; 
+  
 });
+
+app.post('/users', function (req, res){
+  var username = req.body.username;
+  var password = req.body.password;
+
+})
 
 
 app.listen(PORT, function() {

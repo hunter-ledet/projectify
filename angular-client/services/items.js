@@ -13,10 +13,11 @@ angular.module('app')
     });
   };
   // DO NOT FORGET TO ADD ENV VARIABLE KEY TO HEROKU DEPLOYMENT
-  this.getImages = function(query, callback) {
+  this.getImages = (query, callback) => {
+    console.log(query)
     $http({
       method: 'GET',
-      url: 'https://api.unsplash.com/photos/',
+      url: 'https://api.unsplash.com/search/photos/',
       params: {
         client_id: 'ad004fe2b4a3576b8558b8c9d052edb7c71bfbb7fcf484eabc0c21af46d8229d',
         query: query,
@@ -24,7 +25,7 @@ angular.module('app')
       }
     }).then((response) => {
       console.log(response)
-      callback(response.data);
+      callback(response.data.results);
         // this callback will be called asynchronously
         // when the response is available
 

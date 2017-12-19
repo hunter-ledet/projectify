@@ -1,11 +1,12 @@
 angular.module('app')
 .controller('AppCtrl', function(itemsService, $scope) {
-  itemsService.getImages('mountains', (data) => {
+  itemsService.getImages('office', (data) => {
     this.items = data;
   });
     console.log($scope.username)
     console.log($scope.password)
-  $scope.getUsers = function(callback) {
+  this.buttonClick = (callback) => {
+    console.log('this is being clicked')
     $http.get('/users')
     .then(function({data}) {
       if(callback) {
