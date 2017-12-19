@@ -32,7 +32,8 @@ app.get('/users', function (req, res){
 app.post('/users', function (req, res){
   var username = req.body.username;
   var password = req.body.password;
-
+  res.statusCode(200)
+  console.log(username, password, 'this is username ad password in post/users')
 })
 
 

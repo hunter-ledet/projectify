@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="AppCtrl">
 	<div class="row">
 		<div class="col-md-16">
 			<h3 class="text-center">
@@ -56,7 +56,7 @@
 					</label>
 					<input type="user" class="form-control" id="userInput" ng-model='user'/>
 				</div>
-				<div class="form-group">
+				<div class="form-group" ng-controller="AppCtrl">
 					 
 					<label for="exampleInputPassword1">
 						Password
@@ -64,7 +64,7 @@
 					<input type="password" class="form-control" id="exampleInputPassword1" ng-model='password'/>
 				</div>
 				<div class="form-group" ng-controller="AppCtrl">
-				<button type="login" class="btn btn-default" ng-click="$ctrl.onClick()">
+				<button type="login" class="btn btn-default" ng-click="$ctrl.userCreate(user, password)">
 					Login
 				</button>
       </form>
@@ -74,16 +74,19 @@
           <label for="searchInput">
             Search
           </label>
-          <input type="search" class="form-control" id="searchInput" ng-model="search" />
-          <button type="search" class="btn btn-default pull-right">
+          <input type="search" class="form-control" id="searchInput" ng-model="searchBox" />
+          <button type="search" class="btn btn-default pull-right" ng-click="$ctrl.onSearch(searchBox)">
             Search
           </button>
         </div>
       </form>
-      <div>
+      
+		</div>
+		
+	</div>
+	
+</div>
+<div>
   Here are your {{$ctrl.items.length}} pictures. 
   <list-item ng-repeat="item in $ctrl.items" item=item />
-</div>
-		</div>
-	</div>
 </div>

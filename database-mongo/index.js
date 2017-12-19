@@ -1,33 +1,36 @@
-var mongoose = require('mongoose');
-mongoose.connect(`mongodb://hledet:radiohead509@ds159866.mlab.com:59866/projectify`);
+let mongoose = require('mongoose');
 
-var db = mongoose.connection;
+mongoose.connect('mongodb://hledet:radiohead509@ds159866.mlab.com:59866/projectify');
 
-db.on('error', function() {
+let db = mongoose.connection;
+
+db.on('error', () => {
   console.log('mongoose connection error');
 });
 
-db.once('open', function() {
+db.once('open', () => {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
+let itemSchema = mongoose.Schema({
   quantity: Number,
-  description: String
+  description: String,
 });
 
-var Item = mongoose.model('Item', itemSchema);
+let Item = mongoose.model('Item', itemSchema);
 
-var userSchema = mongoose.Schema({
-  name: {type: String, unique: true},
+let userSchema = mongoose.Schema({
+  name: { type: String, unique: true },
   password: String,
   meta: {
-    likes: [String]
-  }
-})
+    likes: [String],
+  },
+});
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+let User = mongoose.model('User', userSchema)
+
+let selectAll = function (callback) {
+  Item.find({}, (err, items) => {
     if(err) {
       callback(err, null);
     } else {

@@ -1,8 +1,10 @@
 angular.module('app')
   .component('listItem', {
     bindings: {
-      item: '<',
+      item: '=',
     },
-    controller() {},
+    controller(itemsService) {
+
+    },
     templateUrl: '/templates/list-item.html',
   });
