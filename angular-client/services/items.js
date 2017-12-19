@@ -59,9 +59,10 @@ angular.module('app')
       $http.get('/userCheck', body)
         .then((response) => {
           if (callback) {
-            if (response === null) {
+            if (response.data.length <= 1) {
               console.warn('Not a user! Please Sign-Up!')
             } else {
+              console.log(response)
               console.warn('Welcome!');
             }
           }
