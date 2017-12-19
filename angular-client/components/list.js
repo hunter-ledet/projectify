@@ -17,6 +17,12 @@ angular.module('app')
           console.log(response);
         });
       };
+
+      this.userCheck = (username, password) => {
+        itemsService.checkUser(username, password, (response) => {
+          console.log(response);
+        });
+      };
     },
     templateUrl: '/templates/list.html',
   });

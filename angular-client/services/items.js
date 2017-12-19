@@ -50,6 +50,26 @@ angular.module('app')
           console.log(err);
         });
     };
+
+    this.checkUser = (username, password, callback) => {
+      let body = {
+        username: username,
+        password: password
+      }
+      $http.get('/userCheck', body)
+        .then((response) => {
+          if (callback) {
+            if (response === null) {
+              console.warn('Not a user! Please Sign-Up!')
+            } else {
+              console.warn('Welcome!');
+            }
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   });
 
   // ad004fe2b4a3576b8558b8c9d052edb7c71bfbb7fcf484eabc0c21af46d8229d

@@ -31,10 +31,19 @@ app.get('/items', (req, res) => {
 });
 
 // flesh out query for user to determine if you can access their collections
-// app.get('/users', (req, res) => {
-//   const username = req.body.username;
-//   const password = req.body.password;
-// });
+app.get('/userCheck', jsonParser, (req, res) => {
+  console.log('this is being fired in app.get("/usercheck")')
+  const username = req.body.username;
+  const password = req.body.password;
+  console.log(req.body, 'req.body in /userCheck')
+  User.findOne({ username: username, password: password }, (err, person) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(person);
+    }
+  });
+});
 
 // flesh out for adding new user, just not passing through password the right way.
 app.post('/users', jsonParser, (req, res) => {
@@ -43,6 +52,7 @@ app.post('/users', jsonParser, (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const user = new User({ username, password });
+  user.save();
   res.status(201).send(user);
 });
 
