@@ -14,7 +14,6 @@ angular.module('app')
     };
     // DO NOT FORGET TO ADD ENV VARIABLE KEY TO HEROKU DEPLOYMENT
     this.getImages = (query, callback) => {
-      console.log(query);
       $http({
         method: 'GET',
         url: 'https://api.unsplash.com/search/photos/',
@@ -36,7 +35,12 @@ angular.module('app')
     };
 
     this.createUser = (username, password, callback) => {
-      $http.post('/users')
+      console.log(username, password, 'username and password in itemsService')
+      let body = {
+        username: username,
+        password: password
+      }
+      $http.post('/users', body)
         .then((response) => {
           if (callback) {
             callback(response);
@@ -47,4 +51,8 @@ angular.module('app')
         });
     };
   });
+
+  // ad004fe2b4a3576b8558b8c9d052edb7c71bfbb7fcf484eabc0c21af46d8229d
+
+  // 4dbd973d45c176990732278959987c06fd1a0d52d0143c1b33e4a8a8dba86719
 

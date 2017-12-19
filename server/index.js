@@ -1,21 +1,28 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var items = require('../database-mongo');
-var users = require('../database-mongo')
-var axios = require('axios')
+const express = require('express');
+const bodyParser = require('body-parser');
+const items = require('../database-mongo');
+const axios = require('axios');
 
-var app = express();
+const User = items.User;
+const Link = items.Link;
 
-var PORT = process.env.PORT || 9400
+const app = express();
+
+const PORT = process.env.PORT || 9400;
+
+const jsonParser = bodyParser.json();
+
+// create application/x-www-form-urlencoded parser
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 // UNCOMMENT FOR ANGULAR
-app.use(express.static(__dirname + '/../angular-client'));
-app.use(express.static(__dirname + '/../node_modules'));
+app.use(express.static(`${__dirname}/../angular-client`));
+app.use(express.static(`${__dirname}/../node_modules`));
 
-app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
-    if(err) {
+app.get('/items', (req, res) => {
+  items.selectAll((err, data) => {
+    if (err) {
       res.sendStatus(500);
     } else {
       res.json(data);
@@ -23,21 +30,33 @@ app.get('/items', function (req, res) {
   });
 });
 
-app.get('/users', function (req, res){
-  var username = req.body.username;
-  var password = req.body.password; 
-  
+// flesh out query for user to determine if you can access their collections
+// app.get('/users', (req, res) => {
+//   const username = req.body.username;
+//   const password = req.body.password;
+// });
+
+// flesh out for adding new user, just not passing through password the right way.
+app.post('/users', jsonParser, (req, res) => {
+  console.log(req);
+  console.log(req.body, 'this is req.body in post/users');
+  const username = req.body.username;
+  const password = req.body.password;
+  const user = new User({ username, password });
+  res.status(201).send(user);
 });
 
-app.post('/users', function (req, res){
-  var username = req.body.username;
-  var password = req.body.password;
-  res.statusCode(200)
-  console.log(username, password, 'this is username ad password in post/users')
-})
+// adding liked pictures
+// app.post('/addLikes', jsonParser, (req, res) => {
+
+// });
+// deleting liked pictures
+// app.delete('/addLikes', (req, res) {
+
+// });
 
 
-app.listen(PORT, function() {
-  console.log('listening on port 3000!');
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}!`);
 });
 
