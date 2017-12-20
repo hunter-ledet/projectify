@@ -21,16 +21,16 @@ app.use(express.static(`${__dirname}/../angular-client`));
 app.use(express.static(`${__dirname}/../node_modules`));
 
 // fetching liked pictures from username
-app.get('/items', jsonParser, (req, res) => {
+app.post('/items', jsonParser, (req, res) => {
   console.log(req.body, 'this is req.body in /items ')
   const username = req.body.username;
   console.log('app.get /items being hit')
-  User.findOne({ 'username' : 'hunter' }, 'likes', (err, data) => {
+  User.findOne({ 'username' : username }, 'likes', (err, data) => {
     console.log('this is data in get /items', data)
     if (err) {
       res.sendStatus(500);
     } else {
-      res.send(data);
+      res.send(data.likes);
     }
   });
 });

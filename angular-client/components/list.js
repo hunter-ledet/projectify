@@ -13,9 +13,9 @@ angular.module('app')
       };
 
       this.likedImages = (username) => {
-        console.log('likedImages being hit in list.js')
+        // username is coming through here
         itemsService.getAll(username, (image) => {
-          this.liked = image.data.likes;
+          this.liked = image;
           console.log(this.liked, 'this is liked coming back from DB');
         });
       };

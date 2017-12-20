@@ -2,12 +2,13 @@
 angular.module('app')
   .service('itemsService', function ($http) {
     this.getAll = (username, callback) => {
-      console.log('get allin itemsService being hit');
-      const body = {
+      console.log(username, 'username as it comes into get all')
+      let body = {
         username: username,
       };
-      $http.get('/items', body)
-        .then((data) => {
+      console.log(body, 'body in getAll')
+      $http.post('/items', body)
+        .then(({ data }) => {
           console.log(data, 'this is data in getAll');
           if (callback) {
             callback(data);
