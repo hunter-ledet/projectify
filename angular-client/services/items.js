@@ -23,7 +23,7 @@ angular.module('app')
         method: 'GET',
         url: 'https://api.unsplash.com/search/photos/',
         params: {
-          client_id: 'ad004fe2b4a3576b8558b8c9d052edb7c71bfbb7fcf484eabc0c21af46d8229d',
+          client_id: '4dbd973d45c176990732278959987c06fd1a0d52d0143c1b33e4a8a8dba86719',
           query,
           per_page: 10,
         },
