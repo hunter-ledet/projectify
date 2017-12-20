@@ -1,9 +1,14 @@
 
 angular.module('app')
   .service('itemsService', function ($http) {
-    this.getAll = function (callback) {
-      $http.get('/items')
-        .then(({ data }) => {
+    this.getAll = (username, callback) => {
+      console.log('get allin itemsService being hit');
+      const body = {
+        username,
+      };
+      $http.get('/items', body)
+        .then((data) => {
+          console.log(data, 'this is data in getAll');
           if (callback) {
             callback(data);
           }
@@ -35,11 +40,11 @@ angular.module('app')
     };
 
     this.createUser = (username, password, callback) => {
-      console.log(username, password, 'username and password in itemsService')
-      let body = {
-        username: username,
-        password: password
-      }
+      console.log(username, password, 'username and password in itemsService');
+      const body = {
+        username,
+        password,
+      };
       $http.post('/users', body)
         .then((response) => {
           if (callback) {
@@ -52,28 +57,59 @@ angular.module('app')
     };
 
     this.checkUser = (username, password, callback) => {
-      let body = {
-        username: username,
-        password: password
-      }
-      $http.get('/userCheck', body)
+      const body = {
+        username,
+        password,
+      };
+      $http.post('/userCheck', body)
         .then((response) => {
           if (callback) {
+            console.log(response);
             if (response.data.length <= 1) {
-              console.warn('Not a user! Please Sign-Up!')
+              console.warn('Not a user! Please Sign-Up!');
             } else {
-              console.log(response)
+              console.log(response);
               console.warn('Welcome!');
             }
           }
         })
         .catch((err) => {
-          console.log(err)
-        })
-    }
+          console.log(err);
+        });
+    };
+
+    this.addLiked = (user, photo, callback) => {
+      console.log(user, 'user in addLiked');
+      const body = {
+        username: user,
+        photo,
+      };
+      console.log(body, 'this is body in itemsService');
+      $http.post('/addLikes', body)
+        .then((response) => {
+          if (callback) {
+            console.log(response);
+            callback(response);
+          }
+        });
+    };
+
+    this.deleteLiked = (user, photo, callback) => {
+      let body = {
+        username: user,
+        photo,
+      };
+      $http.post('/deleteLikes', body)
+        .then((response) => {
+          if (callback) {
+            console.log(response)
+            callback(response)
+          };
+        });
+    };
   });
 
-  // ad004fe2b4a3576b8558b8c9d052edb7c71bfbb7fcf484eabc0c21af46d8229d
+// ad004fe2b4a3576b8558b8c9d052edb7c71bfbb7fcf484eabc0c21af46d8229d
 
-  // 4dbd973d45c176990732278959987c06fd1a0d52d0143c1b33e4a8a8dba86719
+// 4dbd973d45c176990732278959987c06fd1a0d52d0143c1b33e4a8a8dba86719
 

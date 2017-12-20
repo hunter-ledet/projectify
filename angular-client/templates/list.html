@@ -61,15 +61,15 @@
 					<label for="passInput">
 						Password
 					</label>
-					<input type="pass" class="form-control" id="passInput" ng-model='unique'/>
+					<input type="password" class="form-control" id="passInput" ng-model='unique'/>
 				</div>
 				<div class="form-group">
 					
 					<!-- password showing up as undefined in list.js -- fix -->
-				<button type="signUp" class="btn btn-default" ng-click="$ctrl.userCreate(user, unique)">
+				<button type="signUp" class="btn btn-default" ng-click="$ctrl.currentUser(user); $ctrl.userCreate(user, unique)">
 					Sign-Up
 				</button>
-				<button type="login" class="btn btn-default" ng-click="$ctrl.userCheck(user, unique)">
+				<button type="login" class="btn btn-default" ng-click="$ctrl.currentUser(user); $ctrl.userCheck(user, unique); $ctrl.likedImages(user)">
 					login
 				</button>
       </form>
@@ -91,7 +91,11 @@
 	</div>
 	
 </div>
-<div>
-  Here are your {{$ctrl.items.length}} pictures. 
-  <list-item ng-repeat="item in $ctrl.items" item=item />
+<div id='userSearched'>
+  Here are your {{$ctrl.items.length}} searched pictures. 
+	<list-item likes=$ctrl.liked user=$ctrl.user ng-repeat="item in $ctrl.items" item=item />
+</div>
+<div id='userLiked'>
+	Here are your {{$ctrl.liked.length}} liked pictures
+	<user-list-item likes=$ctrl.liked user=$ctrl.user ng-repeat="like in $ctrl.liked" like=like />
 </div>

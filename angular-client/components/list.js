@@ -4,9 +4,19 @@ angular.module('app')
       items: '=',
     },
     controller(itemsService) {
+      this.user;
+
       this.onSearch = (query) => {
         itemsService.getImages(query, (pictures) => {
           this.items = pictures;
+        });
+      };
+
+      this.likedImages = (username) => {
+        console.log('likedImages being hit in list.js')
+        itemsService.getAll(username, (image) => {
+          this.liked = image.data.likes;
+          console.log(this.liked, 'this is liked coming back from DB');
         });
       };
 
@@ -20,9 +30,13 @@ angular.module('app')
 
       this.userCheck = (username, password) => {
         itemsService.checkUser(username, password, (response) => {
-          console.log(response);
         });
       };
+
+      this.currentUser = (username) => {
+        console.log(username, 'username in currentUser')
+        this.user = username;
+      }
     },
     templateUrl: '/templates/list.html',
   });

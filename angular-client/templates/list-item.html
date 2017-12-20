@@ -1,6 +1,6 @@
-<div>
-  <img src={{$ctrl.item.urls.small}} />
-  <button type="button" class="btn btn-primary btn-sm">
+<div ng-controller="AppCtrl" >
+  <img ng-src={{$ctrl.item.urls.small}} ng-model="image" />
+  <button type="button" class="btn btn-primary btn-sm" ng-click="$ctrl.addLiked($ctrl.user, $ctrl.item.urls.small)">
     <span class="glyphicon glyphicon-thumbs-up"></span> Like
   </button>
   <button type="button" class="btn btn-danger btn-sm">Unlike</button>

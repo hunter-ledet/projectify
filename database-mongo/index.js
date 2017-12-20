@@ -22,9 +22,7 @@ const Item = mongoose.model('Item', itemSchema);
 const userSchema = mongoose.Schema({
   username: { type: String, unique: true },
   password: String,
-  meta: {
-    likes: [String],
-  },
+  likes: [String],
 });
 
 const User = mongoose.model('User', userSchema);
