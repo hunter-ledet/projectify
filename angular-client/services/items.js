@@ -17,7 +17,7 @@ angular.module('app')
           console.log(err);
         });
     };
-    // DO NOT FORGET TO ADD ENV VARIABLE KEY TO HEROKU DEPLOYMENT
+
     this.getImages = (query, callback) => {
       $http({
         method: 'GET',
