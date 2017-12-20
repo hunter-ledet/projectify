@@ -1,0 +1,16 @@
+.search {
+
+}
+
+#userLiked {
+  position: absolute,
+}
+
+#userSearched {
+  position: absolute;
+}
+
+#unlikeBtn {
+  position: relative;
+  left: -460px;
+}

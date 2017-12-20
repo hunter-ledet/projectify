@@ -64,20 +64,20 @@
 					<input type="password" class="form-control" id="passInput" ng-model='unique'/>
 				</div>
 				<div class="form-group">
+						
 					
 					<!-- password showing up as undefined in list.js -- fix -->
 				<button type="signUp" class="btn btn-default" ng-click="$ctrl.currentUser(user); $ctrl.userCreate(user, unique)">
 					Sign-Up
 				</button>
 				<button type="login" class="btn btn-default" ng-click="$ctrl.currentUser(user); $ctrl.userCheck(user, unique); $ctrl.likedImages(user)">
-					login
+					Login
 				</button>
       </form>
 
       <form role="search" class="form-right">
         <div class="search" >
           <label for="searchInput">
-            Search
           </label>
           <input type="search" class="form-control" id="searchInput" ng-model="searchBox" />
           <button type="search" class="btn btn-default pull-right" ng-click="$ctrl.onSearch(searchBox)">
@@ -87,15 +87,20 @@
       </form>
       
 		</div>
+		<div id='userSearched'>
+				Here are your {{$ctrl.items.length}} searched pictures. 
+				<list-item likes=$ctrl.liked user=$ctrl.user ng-repeat="item in $ctrl.items" item=item />
+			</div>
+		
 		
 	</div>
+	<div id='userLiked' align='right'>
+			<p id='likedText'>Here are your {{$ctrl.liked.length}} liked pictures</p>
+			<user-list-item likes=$ctrl.liked user=$ctrl.user ng-repeat="like in $ctrl.liked" like=like />
+		</div>
 	
 </div>
-<div id='userSearched'>
-  Here are your {{$ctrl.items.length}} searched pictures. 
-	<list-item likes=$ctrl.liked user=$ctrl.user ng-repeat="item in $ctrl.items" item=item />
-</div>
-<div id='userLiked'>
-	Here are your {{$ctrl.liked.length}} liked pictures
-	<user-list-item likes=$ctrl.liked user=$ctrl.user ng-repeat="like in $ctrl.liked" like=like />
-</div>
+
+
+
+

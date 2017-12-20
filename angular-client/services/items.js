@@ -4,7 +4,7 @@ angular.module('app')
     this.getAll = (username, callback) => {
       console.log('get allin itemsService being hit');
       const body = {
-        username,
+        username: username,
       };
       $http.get('/items', body)
         .then((data) => {
