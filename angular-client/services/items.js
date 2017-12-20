@@ -25,7 +25,7 @@ angular.module('app')
         params: {
           client_id: 'ad004fe2b4a3576b8558b8c9d052edb7c71bfbb7fcf484eabc0c21af46d8229d',
           query,
-          per_page: 5,
+          per_page: 10,
         },
       }).then((response) => {
         console.log(response);
